@@ -1,0 +1,14 @@
+---
+services:
+  kavita:
+    image: lscr.io/linuxserver/kavita:latest
+    environment:
+      PUID: ${UID}
+      PGID: ${GID}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data/kavita:/config
+      - /mnt/Media/media/books:/data/books
+    ports:
+      - 7994:5000
+    restart: unless-stopped
